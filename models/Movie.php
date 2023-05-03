@@ -21,7 +21,7 @@ class Movie {
 
     }
 
-    public function setAdult(){
+    public function GetInfoAdultString(){
         if($this->adultOnly == true){
             return  'Visione consigliata solo ai Maggiorenni';
             

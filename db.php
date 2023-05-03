@@ -7,4 +7,5 @@ $insidious = new Movie ('Insidious', 2010 , ['Horror', 'Thriller', 'Drama'] , ne
 
 
 
+
 ?>
