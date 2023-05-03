@@ -1,41 +1,15 @@
 <?php 
-class Movie {
 
-    public $name;
-    public $year;
-    public $genres;
-    public $mainActor;
-    public $adultOnly;
-
-    function __construct(string $name, int $year, string $genres, string $MainActor, bool $adultOnly){
-
-        $this->name = $name;
-        $this->year = $year;
-        $this->genres = $genres;
-        $this->mainActor = $MainActor;
-        $this->adultOnly = $adultOnly;
+require_once './models/Movie.php';
+require_once './models/Genres.php';
 
 
 
 
-    }
-    public function setAdult(){
-        if($this->adultOnly == true){
-            return  'Visione consigliata solo ai Maggiorenni';
-            
-        } else {
-             return  'Visione consigliata a tutti';
-           
-        }
-    }
-
-
-}
-
-$sinister = new Movie ('sinister', 2012 , 'Horror', 'Ethan Hawke', true);
-$avengers2 = new Movie ('Avengers : Age of Ultron', 2015, 'Fantasy', 'Robert Downey Jr', false );
-$spiderman = new Movie ('Spiderman', 2002, 'Azione', 'Tobey Maguire', false);
-$insidious = new Movie ('Insidious', 2010 , 'Horror', 'Patrick Wilson', true);
+$sinister = new Movie ('sinister', 2012, new Genres('Horror', 'Thriller'), 'Ethan Hawke', true);
+$avengers2 = new Movie ('Avengers : Age of Ultron', 2015, new Genres ('Fantasy', 'Action'), 'Robert Downey Jr', false );
+$spiderman = new Movie ('Spiderman', 2002, new Genres ('Action', 'Adventure'), 'Tobey Maguire', false);
+$insidious = new Movie ('Insidious', 2010 , new Genres('Horror', 'Splatter'), 'Patrick Wilson', true);
 
 $movies = [
 
@@ -89,7 +63,7 @@ $movies = [
             <tr>
                 <td><?= $singleMovie->name ?></td>
                 <td><?= $singleMovie->year ?></td>
-                <td><?= $singleMovie->genres ?></td>
+                <td><?= $singleMovie->genres->getGenres() ?></td>
                 <td><?= $singleMovie->mainActor ?></td>
                 <td><?= $singleMovie->setAdult() ?></td>
                 
