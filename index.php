@@ -1,15 +1,11 @@
 <?php 
 
 require_once './models/Movie.php';
-require_once './models/Genres.php';
+require_once './models/Actors.php';
+require_once 'db.php';
 
 
 
-
-$sinister = new Movie ('sinister', 2012, new Genres('Horror', 'Thriller'), 'Ethan Hawke', true);
-$avengers2 = new Movie ('Avengers : Age of Ultron', 2015, new Genres ('Fantasy', 'Action'), 'Robert Downey Jr', false );
-$spiderman = new Movie ('Spiderman', 2002, new Genres ('Action', 'Adventure'), 'Tobey Maguire', false);
-$insidious = new Movie ('Insidious', 2010 , new Genres('Horror', 'Splatter'), 'Patrick Wilson', true);
 
 $movies = [
 
@@ -18,6 +14,8 @@ $movies = [
     $spiderman,
     $insidious,
 ];
+
+
 
 
 
@@ -63,8 +61,8 @@ $movies = [
             <tr>
                 <td><?= $singleMovie->name ?></td>
                 <td><?= $singleMovie->year ?></td>
-                <td><?= $singleMovie->genres->getGenres() ?></td>
-                <td><?= $singleMovie->mainActor ?></td>
+                <td><?= $singleMovie->getGenres() ?></td>
+                <td><?= $singleMovie->mainActors->getActors() ?></td>
                 <td><?= $singleMovie->setAdult() ?></td>
                 
                 

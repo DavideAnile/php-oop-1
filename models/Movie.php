@@ -5,15 +5,15 @@ class Movie {
     public $name;
     public $year;
     public $genres;
-    public $mainActor;
+    public $mainActors;
     public $adultOnly;
 
-    function __construct(string $name, int $year, Genres $genres, string $MainActor, bool $adultOnly){
+    function __construct(string $name, int $year, array $genres, Actors $mainActors, bool $adultOnly){
 
         $this->name = $name;
         $this->year = $year;
         $this->genres = $genres;
-        $this->mainActor = $MainActor;
+        $this->mainActors = $mainActors;
         $this->adultOnly = $adultOnly;
 
 
@@ -29,6 +29,12 @@ class Movie {
              return  'Visione consigliata a tutti';
            
         }
+    }
+
+    public function getGenres (){
+
+        $array_stringa = implode(',',$this->genres);
+        return $array_stringa;
     }
 
     
